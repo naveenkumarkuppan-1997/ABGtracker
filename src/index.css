@@ -1,0 +1,118 @@
+@import 'tailwindcss';
+
+/* Design tokens. Components use semantic names only (bg-surface, text-muted ...). */
+/* Palette: teal green (brand), gray-green neutrals, white surfaces, orange accent. */
+:root {
+  --bg: #e6edeb; /* page background: soft gray-green */
+  --surface: #ffffff;
+  --surface-2: #f2f6f5;
+  --line: #d3ddda;
+  --fg: #14302d;
+  --muted: #4f6562;
+  --primary: #0f766e; /* teal green */
+  --primary-fg: #ffffff;
+  --accent: #f28c28; /* orange: highlights, focus, badges */
+  --accent-text: #b45309; /* darker orange for text on light backgrounds (readable) */
+  --danger: #dc4b4b;
+  --ring: #f28c28;
+  --shadow: 0 1px 2px rgb(15 61 58 / 0.07), 0 4px 14px rgb(15 61 58 / 0.07);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0a1d1b;
+  --surface: #112a27;
+  --surface-2: #0d2321;
+  --line: #21423e;
+  --fg: #e5f1ef;
+  --muted: #92b2ad;
+  --primary: #f28c28;
+  --primary-fg: #10221f;
+  --accent: #f28c28;
+  --accent-text: #f6a94f;
+  --danger: #f07070;
+  --ring: #f28c28;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 14px rgb(0 0 0 / 0.3);
+  color-scheme: dark;
+}
+
+/* The navigation sidebar is a deep teal panel. Components inside use the same tokens, so
+   re-declaring them here recolours everything in it (text, borders, inputs, buttons). */
+.sidebar-theme,
+.dark .sidebar-theme {
+  --surface: #0e3b38;
+  --surface-2: #14504b;
+  --line: #1f5f59;
+  --fg: #ebf5f3;
+  --muted: #a3c5c0;
+  --primary: #f28c28;
+  --primary-fg: #10221f;
+  --accent-text: #f6a94f;
+  color-scheme: dark;
+}
+.dark .sidebar-theme {
+  --surface: #0b2b29;
+  --surface-2: #103d3a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --color-accent: var(--accent);
+  --color-accent-text: var(--accent-text);
+  --color-danger: var(--danger);
+  --shadow-card: var(--shadow);
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 1px;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 8px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* People who ask their system for less motion get none. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
