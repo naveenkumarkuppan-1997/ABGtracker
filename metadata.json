@@ -1,0 +1,6 @@
+{
+  "name": "ABG Tracker - Enterprise Project & Issue Suite",
+  "description": "Enterprise-grade issue tracking, project management, and team collaboration suite with embedded PostgreSQL storage and zero credit consumption.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
