@@ -1,0 +1,10 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "types": ["node"],
+    "lib": ["ES2023"],
+    "paths": { "@/*": ["../src/*"] }
+  },
+  "include": ["./**/*.ts", "../src/domain/**/*.ts", "../src/data/**/*.ts"],
+  "exclude": ["../src/data/apiRepository.ts", "../src/data/apiRepository.test.ts"]
+}
